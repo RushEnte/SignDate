@@ -1,5 +1,5 @@
 name: SignDate
 main: Sign\SignDate
 version: 1.0.0
-api: 3.0.0-ALPHA12
+api: [3.0.0-ALPHA12]
 author: RushEnte
