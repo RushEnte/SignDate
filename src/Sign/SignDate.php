@@ -165,7 +165,6 @@ class SingUpdate extends Task {
 		$this->plugin = $plugin;
 		$this->prefix = $this->plugin->prefix;
 		$this->lb = $this->plugin->lb;
-		
         
     }
     
