@@ -91,7 +91,7 @@ class SignDate extends PluginBase implements Listener {
         
         $this->getLogger()->info($this->prefix . Color::GREEN . "wurde erfolgreich aktiviert!");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getScheduler()->scheduleRepeatingTask(new SingUpdate($this), 10);
+		$this->getScheduler()->scheduleRepeatingTask(new SignUpdate($this), 10);
         
     }
     
@@ -108,7 +108,7 @@ class SignDate extends PluginBase implements Listener {
         
         if ($playerfile->get("JumpA") === true) {
         	
-        	$player->getArmorInventory()->setBoots(Item::get(301, 0, 1));
+        	$player->getArmorInventory()->setBoots(Item::get(305, 0, 1));
             $eff = new EffectInstance(Effect::getEffect(Effect::JUMP) , 500 * 20 , 1 , false);
             $player->addEffect($eff);
         
@@ -158,7 +158,7 @@ class SignDate extends PluginBase implements Listener {
 	
 }
 
-class SingUpdate extends Task {
+class SignUpdate extends Task {
 	
 	public function __construct($plugin) {
 		
@@ -205,8 +205,8 @@ class SingUpdate extends Task {
                 	
                 	if ($text[1] === Color::GREEN . "Lobby-2") {
                 	
-                	    $bw = new Config("/Home/plugins/Lobby-2/config.yml");
-                        if ($bw->get("ingame") === true) {
+                	    $lb = new Config("/Home/plugins/Lobby-2/config.yml");
+                        if ($lb->get("Voll") === true) {
                         	
                         	$t->setText($this->plugin->lb,
                             Color::GREEN . "Lobby-2",
@@ -216,7 +216,7 @@ class SingUpdate extends Task {
                         	
                         } else {
                         	
-                        	if ($bw->get("reset") === true) {
+                        	if ($lb->get("reset") === true) {
                         	
                         	    if ($this->plugin->load === 1) {
                         	
@@ -246,7 +246,7 @@ class SingUpdate extends Task {
                                 
                             } else {
                         	
-                        	if ($bw->get("players") === 2) {
+                        	if ($lb->get("players") === 25) {
                         	
                         	    $t->setText($this->plugin->lb,
                                 Color::GREEN . "Lobby-2",
@@ -261,8 +261,7 @@ class SingUpdate extends Task {
                                 Color::GREEN . "Betreten",
                                 Color::WHITE . "[" . Color::RED . $lb->get("players") . Color::GRAY . "/" . Color::RED . "25" . Color::WHITE . "]"        
                                 );   
-                        	
-                                                  	
+                        	                                                 	
                             }
                             
                             }
